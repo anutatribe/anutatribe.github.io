@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#b8dedb">
+<meta name="description" content="阿努塔岛部落：体验创造的乐趣。">
+<title>阿努塔岛部落：体验创造的乐趣</title>
+<style>
+:root{--ink:#294e4d;--muted:#688a83;--sea:#75c4c7;--deep:#397f8b;--mint:#cce8d8;--cream:#fffaf0;--coral:#edaa9a;--sun:#f5d889;--lav:#d9d3f1;--leaf:#83b993;--paper:#fffdf5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;color:var(--ink);font-family:"Songti SC","STSong","Noto Serif CJK SC","Microsoft YaHei",serif;background:linear-gradient(180deg,#dff0e5 0%,#cce8e6 34%,#e8e5f4 72%,#f7eddc 100%);overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(2px)}
+body:before{width:54vw;height:54vw;left:-20vw;top:18vh;background:radial-gradient(circle,#b9e6c9aa,transparent 68%)}
+body:after{width:48vw;height:48vw;right:-18vw;bottom:8vh;background:radial-gradient(circle,#f4d8d0aa,transparent 70%)}
+.progress-top{position:fixed;z-index:30;inset:0 0 auto;height:4px;background:#ffffff70}
+.progress-top span{display:block;height:100%;width:0;background:linear-gradient(90deg,#6fbaa3,#89cbd0,#d5b9e8);transition:width .12s}
+.site-header{position:sticky;top:4px;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px clamp(18px,5vw,76px);background:#f8fff1c9;backdrop-filter:blur(15px);border-bottom:1px solid #ffffffa6}
+.brand{display:flex;align-items:center;gap:10px;font:800 11px/1.2 ui-sans-serif,system-ui,sans-serif;letter-spacing:.22em;color:#517b71;white-space:nowrap}
+.brand-mark{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#fff2c8,#cce9d6);box-shadow:0 3px 12px #577d6d25;font-size:18px;color:#719b82}
+.nav{display:flex;gap:clamp(12px,3vw,34px);align-items:center;font:600 12px ui-sans-serif,system-ui,sans-serif;color:#63867d}
+.nav a{text-decoration:none;color:inherit;white-space:nowrap;transition:color .2s}
+.nav a:hover,.nav a.active{color:#2e716a}
+.hero{position:relative;min-height:720px;min-height:min(880px,calc(100svh - 60px));display:flex;align-items:center;justify-content:center;padding:72px 22px 30px;overflow:hidden;background:radial-gradient(ellipse at 50% 32%,#fffce9 0%,#f5f5df 36%,#d9eee0 75%,#c5e5e4 100%)}
+.hero:before{content:"";position:absolute;inset:24px;border:1px solid #92b9a866;border-radius:32px;pointer-events:none}
+.hero-copy{position:relative;z-index:2;width:min(100%,1050px);text-align:center;margin-top:-10px}
+.eyebrow{font:800 10px/1.5 ui-sans-serif,system-ui,sans-serif;letter-spacing:.3em;color:#72988b;margin-bottom:22px}
+h1{margin:0;color:#315e58;font-size:clamp(34px,6vw,70px);line-height:1.28;letter-spacing:.06em;font-weight:700;text-shadow:0 2px 0 #fff9}
+.hero-rule{width:80px;height:3px;border-radius:4px;margin:25px auto 0;background:linear-gradient(90deg,#82c5a7,#edb6a2,#d4c2ec)}
+.island-art{display:block;width:min(90%,760px);height:auto;margin:14px auto -6px;filter:drop-shadow(0 16px 20px #528e8d24)}
+.hero-scroll{display:inline-flex;align-items:center;gap:10px;margin-top:4px;color:#73948a;text-decoration:none;font:700 10px ui-sans-serif,system-ui,sans-serif;letter-spacing:.2em}
+.hero-scroll span{display:inline-block;width:26px;height:1px;background:#9dbeb0}
+.intro-wrap{position:relative;padding:88px 22px 100px;background:linear-gradient(180deg,#bfe4e1 0%,#d8eee3 100%);overflow:hidden}
+.intro-wrap:before{content:"";position:absolute;inset:auto -10% -80px;height:220px;background:radial-gradient(ellipse at 50% 0%,#f7fff0aa,transparent 72%);pointer-events:none}
+.intro-label{text-align:center;font:800 10px ui-sans-serif,system-ui,sans-serif;color:#6d9589;letter-spacing:.28em;margin-bottom:30px}
+.intro-card{position:relative;width:min(100%,940px);margin:auto;padding:clamp(28px,5vw,64px);border:1px solid #ffffffd9;border-radius:28px;background:#fffdf0d9;box-shadow:0 18px 55px #4c85802b}
+.intro-card:after{content:"✧";position:absolute;right:28px;top:18px;font-size:32px;color:#e3c47c}
+.prose{font-size:clamp(16px,1.48vw,19px);line-height:2.05;letter-spacing:.035em;color:#496d66}
+.prose p{margin:0 0 1.2em}
+.prose p:last-child{margin-bottom:0}
+.prose strong{font-weight:700;color:#34766b}
+.prose em{font-style:normal;color:#78978b;letter-spacing:.16em}
+.content-section{position:relative;padding:clamp(76px,10vw,132px) 22px;overflow:hidden}
+.section-inner{position:relative;z-index:2;width:min(100%,960px);margin:auto;padding:clamp(30px,5vw,66px);border:1px solid #ffffffc9;border-radius:30px;background:#fffdf2e8;box-shadow:0 18px 58px #557f7726}
+.section-1{background:linear-gradient(160deg,#d8eee1,#d9ecec 58%,#e9e4f2)}
+.section-2{background:linear-gradient(160deg,#d5e9e8,#e8e6f5 60%,#f5e8df)}
+.section-3{background:linear-gradient(160deg,#e3f0dc,#d5ece8 60%,#f8eddd)}
+.section-4{background:linear-gradient(160deg,#d2eae7,#e3e4f3 60%,#f4e3df)}
+.section-kicker{display:flex;align-items:center;gap:10px;font:800 10px ui-sans-serif,system-ui,sans-serif;letter-spacing:.25em;color:#7b9d91;margin-bottom:14px}
+.kicker-dot{width:7px;height:7px;border-radius:50%;background:#e6c77f;box-shadow:0 0 0 5px #f4e7bf77}
+h2{position:relative;margin:0 0 26px;font-size:clamp(34px,5vw,56px);line-height:1.25;font-weight:700;letter-spacing:.08em;color:#315e58}
+.section-ornament{position:absolute;right:clamp(28px,5vw,64px);top:clamp(25px,4vw,50px);font-size:clamp(22px,3vw,34px);color:#e1bd70}
+.section-number{position:absolute;right:4%;bottom:-8%;font:900 clamp(120px,24vw,300px)/1 ui-sans-serif,system-ui,sans-serif;color:#ffffff4b;letter-spacing:-.08em;pointer-events:none}
+.key-line{margin:1.8em 0 0!important;padding:18px 0 5px;border-top:1px solid #a8c9ba88;font-size:1.08em;line-height:1.9}
+.key-line strong{color:#34796d}
+.rule-title{margin:2em 0 .8em!important;padding:15px 20px;border-left:4px solid #9ccdb5;border-radius:0 14px 14px 0;background:linear-gradient(90deg,#e7f3e6aa,transparent 90%);font-size:1.05em}
+.rule-title:first-child{margin-top:1.4em!important}
+.rule-title strong{color:#376f65}
+.prose .motto{margin-top:1.5em;text-align:center;font-size:.94em;color:#78998d;letter-spacing:.18em}
+.prose .motto em{font-style:normal}
+.back-top{position:fixed;right:22px;bottom:22px;z-index:25;width:44px;height:44px;border:1px solid #ffffffd9;border-radius:50%;background:#fffdf0e8;color:#527b72;font-size:18px;box-shadow:0 5px 18px #466f6626;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s}
+.back-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.site-footer{padding:58px 20px 64px;text-align:center;background:linear-gradient(180deg,#e8e5f2,#f5ebdc);color:#63877c}
+.footer-name{font-size:24px;font-weight:700;letter-spacing:.22em;color:#3e7369}
+.footer-motto{margin-top:12px;font:600 10px ui-sans-serif,system-ui,sans-serif;letter-spacing:.24em;color:#8aa69a}
+.footer-stars{margin-top:20px;color:#d9b76e;font-size:21px;letter-spacing:.6em}
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(max-width:680px){
+ .site-header{padding:10px 14px;gap:10px;align-items:center}.brand{font-size:9px;letter-spacing:.12em;gap:7px}.brand-mark{width:28px;height:28px;font-size:16px}.nav{gap:13px;font-size:11px;overflow-x:auto;max-width:60vw;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+ .hero{min-height:650px;min-height:calc(100svh - 52px);padding:60px 16px 22px}.hero:before{inset:12px;border-radius:22px}.eyebrow{font-size:9px;letter-spacing:.2em;margin-bottom:18px}h1{font-size:clamp(32px,9vw,48px)}.island-art{width:105%;max-width:620px;margin:22px auto 0;transform:translateX(-2%)}.hero-scroll{margin-top:15px}
+ .intro-wrap{padding:60px 14px 70px}.intro-card{padding:28px 23px;border-radius:22px}.intro-card:after{right:16px;top:10px;font-size:24px}.prose{font-size:16px;line-height:1.95;letter-spacing:.02em}
+ .content-section{padding:54px 14px}.section-inner{padding:30px 23px 34px;border-radius:22px}.section-kicker{font-size:9px;letter-spacing:.17em}h2{font-size:38px;margin-bottom:22px}.section-ornament{right:22px;top:22px;font-size:23px}.section-number{font-size:145px;right:0;bottom:-2%}
+ .rule-title{padding:13px 14px;margin-top:1.7em!important}.back-top{right:14px;bottom:14px;width:40px;height:40px}.site-footer{padding:48px 15px 52px}.footer-name{font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="progress-top" aria-hidden="true"><span id="reading-progress"></span></div>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="回到顶部"><span class="brand-mark">☼</span><span>ANUTA ISLAND</span></a>
+  <nav class="nav" aria-label="章节导航">
+    <a href="#section-1">缘起</a><a href="#section-2">理念</a><a href="#section-3">共创</a><a href="#section-4">共生</a>
+  </nav>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy fade-in visible">
+      <div class="eyebrow">ANUTA ISLAND · COLLECTIVE ACTION</div>
+      <h1>阿努塔岛部落：体验创造的乐趣</h1>
+      <div class="hero-rule"></div>
+      <svg class="island-art" viewBox="0 0 920 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="海面上的梦幻小岛">
+        <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#85d4d2"/><stop offset="1" stop-color="#4f9eb0"/></linearGradient><linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c8e89b"/><stop offset="1" stop-color="#66ad8c"/></linearGradient></defs>
+        <circle cx="735" cy="82" r="48" fill="#ffe8a6"/><circle cx="735" cy="82" r="65" fill="#ffe8a6" opacity=".2"/>
+        <path d="M0 220 Q100 190 200 220T400 220T600 220T800 220T1000 220V390H0Z" fill="url(#sea)"/>
+        <path d="M0 266Q100 237 200 266T400 266T600 266T800 266T1000 266" fill="none" stroke="#e7ffff" stroke-width="7" opacity=".85"/>
+        <path d="M0 317Q100 288 200 317T400 317T600 317T800 317T1000 317" fill="none" stroke="#d7f5ec" stroke-width="4" opacity=".75"/>
+        <path d="M215 220Q300 95 460 112Q605 104 725 224Q620 265 468 253Q320 263 215 220Z" fill="url(#land)"/>
+        <path d="M315 170Q370 100 455 118Q540 112 622 171" fill="none" stroke="#e3f5bd" stroke-width="12" stroke-linecap="round"/>
+        <path d="M432 138Q410 87 360 65Q413 61 447 117Q450 65 506 39Q496 98 461 139Z" fill="#397e68"/><path d="M524 149Q531 92 584 70Q528 69 500 121Q491 75 443 54Q451 108 492 151Z" fill="#4b9270"/>
+        <path d="M457 171L495 171L499 218L452 218Z" fill="#fff5dc"/><path d="M447 174L478 146L510 174Z" fill="#d88f83"/><rect x="470" y="185" width="12" height="33" rx="5" fill="#83b8bd"/>
+        <path d="M155 93q25-24 50 0q25-24 50 0" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".9"/><path d="M695 167q20-18 40 0q20-18 40 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+        <g fill="#fff4ca"><path d="M125 159l7 19 19 7-19 7-7 19-7-19-19-7 19-7Z"/><path d="M836 232l5 13 13 5-13 5-5 13-5-13-13-5 13-5Z"/></g>
+      </svg>
+      <a class="hero-scroll" href="#opening"><span></span> 向下探索 <span></span></a>
+    </div>
+  </section>
+  <section class="intro-wrap" id="opening">
+    <div class="intro-label">THE ISLAND STORY</div>
+    <div class="intro-card prose fade-in"><p>阿努塔岛，像一片不经意落在大海里的树叶，飘在深蓝色的西南太平洋上。</p>
+<p>在这个岛上，无论你走到哪里，都能听到海浪声。</p>
+<p>阿岛人一起为一件事而工作，分享共同创造的成果，这是他们成功的秘诀。</p>
+<p>阿岛人简单而快乐，享受每一次的劳动和收获，他们没有贵贱之分。</p>
+<p>没有污染、没有暴力、没有争斗、没有世俗的诱惑，每一个人都去关心他人。</p>
+<p>在他们心中没有自己和他人之分，他们是一家人。</p></div>
+  </section>
+  <section class="content-section section-1" id="section-1">
+      <div class="section-inner">
+        <div class="section-kicker"><span class="kicker-dot"></span> ANUTA ISLAND · 缘起</div>
+        <h2>缘起</h2>
+        <div class="section-ornament" aria-hidden="true">✦</div>
+        <div class="prose"><p>阿努塔岛人的生活，令人心生向往。</p> <p>他们不以一己之力求事，而以众人之力成事；不独享劳作之果，而乐于分享共同创造的收获。人与人之间，因相互扶持而相依，因共同劳动而亲近。</p> <p>这便是阿努塔岛部落的由来。</p> <p>世间许多事情，原本并非不能做，只是独自一人，力量有限。有人想开一间书店，有人想办一家民宿，有人想做一件产品，也有人心中藏着一个尚未实现的念头。或因缺少伙伴，或因资金、经验所限，终究搁置下来。</p> <p>倘若有人倡议，有人响应，各尽所长，彼此成全，许多原本难以成就的事情，或许便有了实现的可能。</p> <p>我们想做的，就是这样一件事。</p> <p>让想法不止于想法，让愿望有机会成为行动，让一群人从一件小事做起，共同体验创造的乐趣。</p> <p class="key-line"><strong>体验创造，与人协作，共享成果，是阿努塔岛部落的初心。</strong></p></div>
+      </div>
+      <div class="section-number" aria-hidden="true">01</div>
+    </section><section class="content-section section-2" id="section-2">
+      <div class="section-inner">
+        <div class="section-kicker"><span class="kicker-dot"></span> ANUTA ISLAND · 理念</div>
+        <h2>理念</h2>
+        <div class="section-ornament" aria-hidden="true">✦</div>
+        <div class="prose"><p>我们所倡导的，是一种共同体协作网络（Collective Action Network）。</p> <p>它不以某个人为中心，也不由少数人包办一切。每个人既可以是参与者，也可以是发起者；既可以贡献所长，也可以从参与中有所收获。</p> <p>其运行，有三条基本规则。</p> <p class="rule-title"><strong>一、人人皆可发起倡议。</strong></p> <p>凡有可行之念，皆可提出；凡有共同兴趣，皆可召集。无须等待谁来安排，也不必拘泥于身份与资历。一个人的倡议，便可以成为众人共同讨论的事情。</p> <p class="rule-title"><strong>二、参与者三分之二通过，即可执行。</strong></p> <p>倡议经共同讨论，获得参与表决者三分之二及以上赞成，即可付诸实施。让多数人的共同意愿成为行动的依据，也让每一项倡议都有机会落地生根。</p> <p class="rule-title"><strong>三、阿努塔岛部落保留一票否决权。</strong></p> <p>部落作为共同体的发起方，保留一票否决权，以守护共同的理念、基本秩序与长远方向。凡有违共同体原则、侵害参与者权益或存在重大风险者，皆应审慎处置。</p> <p>三条规则，看似简单，所求的无非是：让每个人都有发起的机会，让共同的事情有作成的办法，也让共同体有所守持。</p></div>
+      </div>
+      <div class="section-number" aria-hidden="true">02</div>
+    </section><section class="content-section section-3" id="section-3">
+      <div class="section-inner">
+        <div class="section-kicker"><span class="kicker-dot"></span> ANUTA ISLAND · 共创</div>
+        <h2>共创</h2>
+        <div class="section-ornament" aria-hidden="true">✦</div>
+        <div class="prose"><p>阿努塔岛部落不预设自己将来成为何种模样。</p> <p>它可以是一间书店，可以是一家民宿，可以是一档节目，也可以是一项研究、一场活动，或一个尚未有人尝试过的事业。</p> <p>事情不论大小，只要有人愿意发起，便可以寻找志同道合的伙伴；有人愿意参与，便可以各展所长。有人出主意，有人做实事，有人提供经验，有人贡献时间。众人之力，各有其用。</p> <p>不必人人相同，也不必事事齐备。能够相聚，便有了开端；能够协作，便有了希望；能够完成，便有了共同的收获。</p> <p>我们不以规模论成败，也不以一时得失论价值。做成一件事固然可喜，即便途中有所曲折，也自有所得。那些曾经共同付出的时间、心力与智慧，本身便是创造的一部分。</p></div>
+      </div>
+      <div class="section-number" aria-hidden="true">03</div>
+    </section><section class="content-section section-4" id="section-4">
+      <div class="section-inner">
+        <div class="section-kicker"><span class="kicker-dot"></span> ANUTA ISLAND · 共生</div>
+        <h2>共生</h2>
+        <div class="section-ornament" aria-hidden="true">✦</div>
+        <div class="prose"><p>阿努塔岛部落，不只是一个相聚的地方，更是一种做事的方式。</p> <p>在这里，每个人都可以带来自己的想法，也可以参与他人的事业；可以独自发起，也可以与人同行。彼此尊重，各尽所能，在一次次协作中建立信任，在一件件事情中积累经验。</p> <p>我们相信，人与人之间除了竞争，还有互助；除了各自经营，也可以共同创造。一个人的所思所想，经过众人的参与，能够生长出超越个人的成果。</p> <p>阿努塔岛远在南太平洋，而它所给予我们的启发，却可以存在于日常生活之中。</p> <p>不必等待一个宏大的开始，也不必先有周全的计划。从一个念头、一份倡议、一件小事做起。</p> <p class="key-line"><strong>让想做的事有人响应，让想做事的人各尽其力，让共同创造的成果由参与者一同分享。</strong></p> <p>这是阿努塔岛部落所向往的生活，也是我们愿意为之付诸努力的事业。</p></div>
+      </div>
+      <div class="section-number" aria-hidden="true">04</div>
+    </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-name">阿努塔岛部落</div>
+  <div class="footer-motto">共同发起 · 共同参与 · 共同完成</div>
+  <div class="footer-stars" aria-hidden="true">✦　☼　✧</div>
+</footer>
+<button class="back-top" id="backTop" type="button" aria-label="回到顶部">↑</button>
+<script>
+(()=>{
+ const progress=document.getElementById('reading-progress');
+ const backTop=document.getElementById('backTop');
+ const navLinks=[...document.querySelectorAll('.nav a')];
+ const sections=[...document.querySelectorAll('.content-section')];
+ const fadeEls=[...document.querySelectorAll('.fade-in')];
+ const update=()=>{
+   const max=document.documentElement.scrollHeight-window.innerHeight;
+   const ratio=max>0?window.scrollY/max:0;
+   progress.style.width=(ratio*100)+'%';
+   backTop.classList.toggle('show',window.scrollY>420);
+ };
+ window.addEventListener('scroll',update,{passive:true});update();
+ backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+ if('IntersectionObserver' in window){
+   const reveal=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');reveal.unobserve(entry.target)}}),{threshold:.12});
+   fadeEls.forEach(el=>reveal.observe(el));
+   const spy=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){const id='#'+entry.target.id;navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id))}}),{rootMargin:'-30% 0px -55% 0px'});
+   sections.forEach(s=>spy.observe(s));
+ } else {fadeEls.forEach(el=>el.classList.add('visible'))}
+})();
+</script>
+</body>
+</html>

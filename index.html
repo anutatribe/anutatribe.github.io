@@ -121,12 +121,12 @@ body{
 
 h1{
   margin:0;
-  color:#22554d; 
+  color:#1f8a7a; /* 鲜亮青绿，比原 #22554d 明显更亮更透 */
   font-size:clamp(38px, 6vw, 72px);
   line-height:1.2;
   letter-spacing:.08em;
   font-weight:800;
-  text-shadow: 0 2px 12px rgba(255,255,255,0.85); 
+  text-shadow: 0 2px 12px rgba(255,255,255,0.95);
 }
 
 /* 彩虹渐变线 */
@@ -138,7 +138,14 @@ h1{
   background: linear-gradient(90deg, #5ee7df 0%, #b490ca 100%);
   opacity: 0.9;
 }
-
+.hero-slogan{
+  margin: 14px auto 0;
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 500;
+  letter-spacing: .18em;
+  color: #2f6f64;
+  text-shadow: 0 1px 6px rgba(255,255,255,0.9);
+}
 /* 底部波浪切边 */
 .hero-wave{
   position:absolute;
@@ -331,7 +338,6 @@ h2{position:relative;margin:0 0 26px;font-size:clamp(34px,5vw,56px);line-height:
       <a href="#section-1">缘起</a>
       <a href="#section-2">理念</a>
       <a href="#section-3">共创</a>
-      <a href="#section-4">共生</a>
     </nav>
   </header>
 </div>
@@ -343,7 +349,7 @@ h2{position:relative;margin:0 0 26px;font-size:clamp(34px,5vw,56px);line-height:
     <div class="hero-copy fade-in visible">
       <h1>阿努塔岛部落</h1>
       <div class="hero-rainbow-bar"></div>
-    </div>
+	</div>
     
     <!-- 向下滑动：引导至阿岛的故事卡片 -->
     <a class="hero-scroll" href="#opening">
@@ -426,21 +432,11 @@ h2{position:relative;margin:0 0 26px;font-size:clamp(34px,5vw,56px);line-height:
       <div class="section-number" aria-hidden="true">03</div>
     </section>
     
-    <!-- 板块4：共生 -->
-    <section class="content-section section-4" id="section-4">
-      <div class="section-inner">
-        <div class="section-kicker"><span class="kicker-dot"></span> ANUTA ISLAND · 共生</div>
-        <h2>共生</h2>
-        <div class="section-ornament" aria-hidden="true">✦</div>
-        <div class="prose"><p>阿努塔岛部落，不只是一个相聚的地方，更是一种做事的方式。</p> <p>在这里，每个人都可以带来自己的想法，也可以参与他人的事业；可以独自发起，也可以与人同行。彼此尊重，各尽所能，在一次次协作中建立信任，在一件件事情中积累经验。</p> <p>我们相信，人与人之间除了竞争，还有互助；除了各自经营，也可以共同创造。一个人的所思所想，经过众人的参与，能够生长出超越个人的成果。</p> <p>阿努塔岛远在南太平洋，而它所给予我们的启发，却可以存在于日常生活之中。</p> <p>不必等待一个宏大的开始，也不必先有周全的计划。从一个念头、一份倡议、一件小事做起。</p> <p class="key-line"><strong>让想做的事有人响应，让想做事的人各尽其力，让共同创造的成果由参与者一同分享。</strong></p> <p>这是阿努塔岛部落所向往的生活，也是我们愿意为之付诸努力的事业。</p></div>
-      </div>
-      <div class="section-number" aria-hidden="true">04</div>
-    </section>
 </main>
 
 <footer class="site-footer">
   <div class="footer-name">阿努塔岛部落</div>
-  <div class="footer-motto">共同发起 · 共同参与 · 共同成长</div>
+  <div class="footer-motto">共同发起 · 共同创造 · 共同成长</div>
   <div class="footer-stars" aria-hidden="true">✦ ☼ ✧</div>
 </footer>
 
